@@ -1,0 +1,6 @@
+public List<Account> findAccounts(Predicate<Account> rule) {
+        return accounts.values()
+                .stream()
+                .filter(rule)
+                .toList();
+    }
