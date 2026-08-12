@@ -1,0 +1,13 @@
+package securebank;
+
+import com.securebank.Transaction;
+
+@FunctionalInterface
+
+public interface TransactionRule {
+    boolean test(Transaction transaction);
+
+    default TransactionRule and(TransactionRule other) {
+        return transaction -> this.test(transaction) && other.test(transaction);
+    }
+}
