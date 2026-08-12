@@ -11,3 +11,7 @@ public interface TransactionRule {
         return transaction -> this.test(transaction) && other.test(transaction);
     }
 }
+
+TransactionRule largeTransaction = transaction -> transaction.getAmount() >= 500.00
+        TransactionRule isWithdrawal = transaction -> transactiongetType().equals("WITHDRAW");
+TransactionRule largeWithdrawal = largeTransaction.and(isWithdrawal);
