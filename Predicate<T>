@@ -1,0 +1,8 @@
+}
+    Predicate<Account> balanceAtLeast1000 = account -> account.getBalance() >= 1000.00;
+    Predicate<Account> mayaAccount = account -> account.getOwner().getName().contains("Maya");
+
+    bank.findAccounts(balanceAtLeast1000.and(mayaAccount)) {
+        .forEach(System.out::println);
+    }
+}
