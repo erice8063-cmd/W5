@@ -4,3 +4,17 @@ Consumer<Transaction> writeAudit = transaction -> AuditFileManager.appendTransac
 
 Consumer<Transaction> printAndAudit = printTransaction.andThen(writeAudit);
 withdrawals.forEach(printAndAudit);
+
+//Lambdas do not replacce exceptions//
+
+Consumer<Double> safeMayaWithdrawal = amount -> {
+  Account account = bank.findAccount("ACC-1001");
+try {
+    account.withdraw(amount);
+    System.out.println("Withdrawal rejected: " + e.getMessage());
+  }
+
+};
+
+safeMayaWithdrawal.accept(100.00);
+safeMayaWithdrawal.accept(5000.00);
