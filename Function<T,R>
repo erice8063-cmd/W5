@@ -1,0 +1,6 @@
+Function<Account, Double> getBalance = Account::getBalance;
+Function<Double, String> formatMoney = amount -> String.format("$%.2f", amount);
+
+Function<Account, String> balanceDisplay = getBalance.andThen(formatMoney);
+
+String result = balanceDisplay.apply(account);
