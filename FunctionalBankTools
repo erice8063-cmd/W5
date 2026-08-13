@@ -1,0 +1,47 @@
+package securebank;
+import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
+
+public class FunctionalBankTools {
+
+  public static List<Transaction> filterTransactions(
+          List<Transaction> transactions,
+          Predicate<Transaction> rule) {
+    return transactions.stream()
+            .filter(rule)
+            .toList();
+}
+
+public static List<String> transformAccounts(
+      List<Account> accounts,
+      Function<Account, String> transformer) {
+return accounts.stream()
+  .map(transformer)
+  .toList();
+}
+
+public static void processTransactions(
+    List<Transaction> transactions,
+    Consumer<Transaction> action) {
+transactions.forEach(action);
+}
+
+public static Account createAccount(Supplier<Account> accountSupplier) {
+  return accountSupplier.get();
+}
+
+public static List<Transaction> filterWithCustomRule(
+  List<Transaction> transactions,
+  TransactionRule rule) {
+return transactions.stream()
+  .filter(rule::test)
+  .toList();
+  }
+}
+
+
+
+
