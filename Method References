@@ -1,0 +1,8 @@
+// Lambda
+account -> account.getBalance()
+
+// Method reference
+Account::getBalance
+
+name -> System.out.println(name)
+System.out::println
