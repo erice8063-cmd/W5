@@ -1,0 +1,6 @@
+Consumer(Transaction> printTransaction = transaction -> System.out.println("Processed: " + transaction);
+
+Consumer<Transaction> writeAudit = transaction -> AuditFileManager.appendTransaction(transaction, "functiona;-audit.txt");
+
+Consumer<Transaction> printAndAudit = printTransaction.andThen(writeAudit);
+withdrawals.forEach(printAndAudit);
