@@ -1,0 +1,4 @@
+Supplier<Account> newSavingsAccount = () -> new Account("ACC-1004", sam, 300.00);
+
+System.out.println("Supplier created...");
+Account samAccount = FunctionalBankTools.createAccount(newSavingsAccount);
